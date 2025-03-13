@@ -13,6 +13,7 @@ namespace DungeonExplorer
 
         public Game()
         {
+            Test.RunTest();
             Console.WriteLine("Welcome to Dungeon Explorer!");
             // Ask the player for their name and adds it to a new variable
             Console.WriteLine("What is your name?");
