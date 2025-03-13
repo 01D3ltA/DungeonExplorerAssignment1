@@ -50,16 +50,17 @@ namespace DungeonExplorer
                 else if (command == "pickup")
                 {
                     
-                    if (itemExists == true)
+                    if (itemExists == true) // If the item exists in the room, the player is asked if they want to pick it up
                     {
                         Console.WriteLine("Do you want to pickup the " + currentItem.GetItem() + "? (yes/no)");
                         string answer = Console.ReadLine();
                         if (answer == "yes" && itemExists == true)
                         {
                             player.PickUpItem(currentItem.GetItem());
-                            Console.WriteLine("You picked up a " + currentItem.GetItem());
-                            itemExists = false;
-                            
+                            Console.WriteLine("You picked up a " + currentItem.GetItem()); // the item is picked up and added to the player's inventory
+                            itemExists = false; // the itemExists variable is set to false which means
+                                                // the item is no longer in the room and cannot be picked up again
+
                         }
                         else if (answer == "no")
                         {
@@ -80,7 +81,7 @@ namespace DungeonExplorer
                 // If the command is "help", print a list of commands
                 else if (command == "help")
                 {
-                    Console.WriteLine("Commands:" +
+                    Console.WriteLine("Commands:" + // List of commands that the player can use
                         "\nquit : exit game" +
                         "\nhelp : pull up command list" +
                         "\npickup : pickup current item" +
@@ -95,12 +96,12 @@ namespace DungeonExplorer
                     Console.WriteLine("You have the following items: ");
                     Console.WriteLine(player.InventoryContents());
                 }
-                else if (command == "player")
+                else if (command == "player") // If the player enters 'player' the player's name and health are displayed
                 {
                     Console.WriteLine("Player name : " +player.Name);
                     Console.WriteLine("Player health : "+ player.Health);
                 }
-                else if (command == "look around")
+                else if (command == "look around") // If the player enters 'look around' the items in the room are displayed
                 {
                    if (itemExists == true)
                     {
